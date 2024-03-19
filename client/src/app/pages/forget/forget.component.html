@@ -1,0 +1,17 @@
+<div class=" w-4/12 justify-center mx-auto p-11 mt-50 shadow-2xl rounded-2xl ">
+    <h3 class="animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent text-3xl font-black text-center">Forget Password</h3>
+    <form [formGroup]="forgetForm" class="flex flex-col">
+        <div class="flex flex-col mt-4 mb-1" >
+            <input formControlName="email" class ="p-2 border border-emerald-300 rounded-3xl "type="text" placeholder="Email">
+            <span *ngIf="forgetForm.hasError('required', 'email') && forgetForm.controls['email'].dirty" class="text-red-600">*Email is Required</span>
+            <span *ngIf="forgetForm.hasError('email', 'email')" class="text-red-600">*Email is Invalid</span>
+        </div>
+
+        <button [disabled]="forgetForm.invalid" [class.disabled]="forgetForm.invalid" (click)="forget()" class="transition delay-150 duration-300 ease-in-out bg-lime-500 p-2 rounded mt-3 text-yellow-200">Submit</button>
+        <button [routerLink]="['/login']" class="transition delay-150 duration-300 ease-in-out bg-gray-500 p-2 rounded mt-3 text-yellow-200">cancel</button>
+
+    </form>
+</div>
+
+
+

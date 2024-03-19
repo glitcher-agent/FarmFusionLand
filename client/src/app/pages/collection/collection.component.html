@@ -1,0 +1,20 @@
+<div class=" w-4/12 justify-center mx-auto p-11 sm:mt-14 shadow-2xl rounded-2xl ">
+    <h3 class="animate-text bg-gradient-to-r mt-5 from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent text-3xl font-black text-center">Create Your Store Here</h3>
+    <h4 class="text-sm font-black text-center">Add a Sample Product to your Store</h4>
+    <form [formGroup]="collectionForm" class="flex flex-col">
+        <div class="flex flex-col mt-4 mb-1" >
+            <input formControlName="storename" class ="p-2 border border-emerald-300 rounded-3xl "type="text" placeholder="Store Name">
+            <span *ngIf="collectionForm.hasError('required', 'storename') && collectionForm.controls['storename'].dirty" class="text-red-600">*Store Name is Required</span>
+        </div>
+        <div class="flex flex-col mt-4 mb-1" >
+            <input formControlName="productname" class ="p-2 border border-emerald-300 rounded-3xl "type="text" placeholder="Product Name">
+            <span *ngIf="collectionForm.hasError('required', 'productname') && collectionForm.controls['productname'].dirty" class="text-red-600">*Product Name is Required</span>
+        </div>
+        <div class="flex flex-col mt-4 mb-1" >
+            <input formControlName="price" class ="p-2 border border-emerald-300 rounded-3xl "type="text" placeholder="Price">
+            <span *ngIf="collectionForm.hasError('required', 'price') && collectionForm.controls['price'].dirty" class="text-red-600">*Price is Required</span>
+        </div>
+
+        <button [disabled]="collectionForm.invalid" [class.disabled]="collectionForm.invalid" (click)="collection()" class=" font-bold transition delay-150 duration-300 ease-in-out bg-lime-500 p-2 rounded mt-3 text-yellow-200">CREATE</button>
+    </form>
+</div>

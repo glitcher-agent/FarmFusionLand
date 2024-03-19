@@ -1,0 +1,229 @@
+.cart-text{
+    font-weight: bold;
+    margin-left: -83%;
+}
+.checkout-btn{
+    background-color: #245bff;
+    width: fit-content;
+    padding: 9px;
+    border-radius: 12%;
+    font-weight: bold;
+    margin-left: -83%;
+    appearance: none;
+    background-color: #FFFFFF;
+    border-radius: 40em;
+    border-style: none;
+    box-shadow: #ADCFFF 0 -12px 6px inset;
+    box-sizing: border-box;
+    color: #000000;
+    cursor: pointer;
+    display: inline-block;
+    font-family: -apple-system,sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: -.24px;
+    outline: none;
+    padding: 1rem 1.3rem;
+    quotes: auto;
+    text-align: center;
+    text-decoration: none;
+    transition: all .15s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.checkout-btn:hover {
+  background-color: #FFC229;
+  box-shadow: #FF6314 0 -6px 8px inset;
+  transform: scale(1.125);
+}
+
+.checkout-btn:active {
+  transform: scale(1.025);
+}
+
+@media (min-width: 768px) {
+  .checkout-btn {
+    font-size: 1.5rem;
+    padding: .75rem 2rem;
+  }
+}
+
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .table-header th {
+    background-color: #f2f2f2;
+  }
+  
+  .table tr {
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .table td, .table th {
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .btn {
+    padding: 6px 12px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  .btn-danger {
+    color: #fff;
+    background-color: #dc3545;
+    border: 1px solid #dc3545;
+  }
+
+.center{
+
+    align-items: center;
+    text-align: center;
+    margin-left: 45.5%;
+    margin-top: 5%;
+    justify-content: center;
+}
+
+.btn-trash{
+    width: 50px;
+    height: 48px;
+    position: relative;
+    overflow: hidden;
+    padding: 5px;
+    margin-left: 0px;
+    margin-bottom: 25px;
+    cursor:pointer;
+    
+  }
+  .icon-trash {
+    width: 48px;
+    height: 48px;
+    overflow: hidden;
+    margin-left: 25px;
+    margin-bottom: 25px;
+  }
+  .icon-trash .trash-lid {
+    width: 62%;
+    height: 10%;
+    position: absolute;
+    left: 50%;
+    margin-left: -31%;
+    top: 10.5%;
+    background-color: #000;
+    border-top-left-radius: 80%;
+    border-top-right-radius: 80%;
+    -webkit-transform: rotate(-5deg);
+    -moz-transform: rotate(-5deg);
+    -ms-transform: rotate(-5deg);
+    transform: rotate(-5deg); 
+  }
+  
+  .icon-trash .trash-lid:after {
+    content: "";
+    width: 26%;
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    margin-left: -13%;
+    margin-top: -10%;
+    background-color: inherit;
+    border-top-left-radius: 30%;
+    border-top-right-radius: 30%;
+    -webkit-transform: rotate(-1deg);
+    -moz-transform: rotate(-1deg);
+    -ms-transform: rotate(-1deg);
+    transform: rotate(-1deg); 
+  }
+  
+  .icon-trash .trash-container {
+    width: 56%;
+    height: 65%;
+    position: absolute;
+    left: 50%;
+    margin-left: -28%;
+    bottom: 10%;
+    background-color: #000;
+    border-bottom-left-radius: 15%;
+    border-bottom-right-radius: 15%;
+  }
+  
+  .icon-trash .trash-container:after {
+    content: "";
+    width: 110%;
+    height: 12%;
+    position: absolute;
+    left: 50%;
+    margin-left: -55%;
+    top: 0;
+    background-color: inherit;
+    border-bottom-left-radius: 45%;
+    border-bottom-right-radius: 45%;
+  }
+  
+  .icon-trash .trash-line-1 {
+    width: 4%;
+    height: 50%;
+    position: absolute;
+    left: 38%;
+    margin-left: -2%;
+    bottom: 17%;
+    background-color: #252527;
+  }
+  
+  .icon-trash .trash-line-2 {
+    width: 4%;
+    height: 50%;
+    position: absolute;
+    left: 50%;
+    margin-left: -2%;
+    bottom: 17%;
+    background-color: #252527;
+  }
+  
+  .icon-trash .trash-line-3 {
+    width: 4%;
+    height: 50%;
+    position: absolute;
+    left: 62%;
+    margin-left: -2%;
+    bottom: 17%;
+    background-color: #252527;
+  }  
+
+.card-title{
+    text-align: center;
+    font-weight: bolder;
+    font-size: xx-large;
+    margin-top: 5%;
+}
+  
+.checkout {
+    border: 0;
+    display: flex;
+    align-items: center;
+    padding: 16px 20px 16px 15px;
+    height: 56px;
+    position: right;
+    font-family: inherit;
+    justify-content: flex-end;
+    font-size: 1em;
+    line-height: 1em;
+    font-weight: 500;
+    background-color: white;
+    cursor: pointer;
+    border-radius: 32px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+    -webkit-tap-highlight-color: transparent;
+    transition: box-shadow 0.2s ease, background-color 150ms ease;
+    &:focus {
+      box-shadow: 0 8px 64px 16px rgba(0,0,0,0.5);
+      outline: none;
+    }
+  }

@@ -1,0 +1,17 @@
+<app-header />
+<div class="image-container">
+    <div *ngFor="let value of products | async" class="card">
+      <img src="https://img.freepik.com/free-vector/street-side-scene-with-ice-cream-shop-fruit-shop_1308-48321.jpg?size=626&ext=jpg" alt="Avatar" style="width:100%">
+      <div class="container">
+        <h4 >Product Name : <b>{{value.productname}}</b></h4>
+        <h3 >Price : $<b>{{value.price}}</b></h3>
+        <br>
+        <button (click)=addtocart(value) class="add-to-cart">
+          Add to Cart
+       </button>
+      </div>
+    </div>
+  </div>
+  
+  
+  

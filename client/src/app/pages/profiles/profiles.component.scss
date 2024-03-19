@@ -1,0 +1,25 @@
+/* profiles.component.scss */
+
+.image-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+
+.card {
+  width: 30%; /* Adjust as needed */
+  margin-bottom: 20px; /* Adjust spacing between rows */
+  box-sizing: border-box;
+}
+
+img {
+  width: 50%;
+  height: 70%;
+  border-radius: 80%;
+}
+
+.container{
+  text-align: center;
+}

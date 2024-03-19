@@ -1,0 +1,33 @@
+.image-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    cursor: pointer;
+    margin-top: 3%;
+  }  
+  .card {
+    width: 15%; 
+    margin-bottom: 20px; 
+    box-sizing: border-box;
+  }
+  
+  img {
+    width: 8%;
+    height: 70%;
+    border-radius: 100%;
+  }
+  
+  .container{
+    text-align: center;
+  }
+  
+  .add-to-cart {
+    cursor: pointer;
+    background-color: cadetblue;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-top: -5px;
+    padding: 8px;
+    width: 50%;
+    height: 100%;
+  }
