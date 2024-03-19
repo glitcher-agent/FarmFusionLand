@@ -30,7 +30,11 @@ export class ProductsComponent  {
   constructor(private authService: AuthService, private cartService : CartService){
 
   }
+  
   ngOnInit(): void {
+
+
+
     this.activatedRoute.params.subscribe(val=>{
       this.storename = val['storename'];
       console.log(this.storename)
@@ -40,13 +44,17 @@ export class ProductsComponent  {
     this.cartService.search.subscribe((val:any)=>{
       this.searchKey = val;
     })
+  
   }
   getproducts(){
     this.products = this.authService.getProductsService(this.storename);
   }
+
   addtocart(value: any){
-    this.cartService.addtoCart(value);
+    console.log("productcomp.ts"+ value); 
+    this.cartService.addtoCart(value);  
   }
+  
 }
 
 
