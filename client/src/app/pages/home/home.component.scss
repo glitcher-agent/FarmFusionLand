@@ -1,0 +1,20 @@
+.text{
+    position: relative;
+    color: rgb(139, 24, 34);
+    font-family: roboto;
+    font-size: 90px;;
+    animation: text 0.95s cubic-bezier(0.65, 0, 0.35, 1) both;
+    margin: 5;
+    padding: 5;
+    text-align: center;
+  }
+
+
+  @keyframes text {
+    0% {
+      transform: translateY(-100px);
+    }
+    100% {
+      transform: translateZ(0px);
+    }
+  }
