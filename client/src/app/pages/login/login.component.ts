@@ -19,6 +19,7 @@ export class LoginComponent {
   router =inject(Router);
   loginForm !: FormGroup;
   toastr = inject(ToastrService);
+  
 
   ngOnInit(): void {
     this.loginForm =this.fb.group({
@@ -33,13 +34,28 @@ export class LoginComponent {
     this.authService.loginService(this.loginForm.value)
     .subscribe({
       next:(res)=>{
-        this.toastr.success('Login Success');
+        this.toastr.success('Please verify your Login');
         localStorage.setItem("user_id", res.data._id);
-        this.router.navigate(['home']);
+        localStorage.setItem("username", res.data.userName);
+        localStorage.setItem("role", res.data.roles[0].role);
+        this.authService.isloggedin$.next(true);
+        const otp = Math.floor(100000 + Math.random() * 900000);
+        this.authService.sendOTPByEmail(this.loginForm.value.email, otp)
+        .subscribe({
+          next: (res)=>{
+            this.toastr.success(res);
+
+          },
+          error: (err)=>{
+            this.toastr.error(err.error);
+          }
+        });
+        localStorage.setItem('otp', String(otp));
+        this.router.navigate(['otp']);
         this.loginForm.reset();
       },
       error:(err)=>{ 
-        this.toastr.error(err.error);
+        this.toastr.error(err.error); 
       }
     })
   }

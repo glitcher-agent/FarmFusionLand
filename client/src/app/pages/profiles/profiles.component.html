@@ -1,7 +1,7 @@
 <app-header />
 <div class="image-container">
   <div *ngFor="let value of profiles | async" class="card">
-    <img src="https://img.freepik.com/free-vector/street-side-scene-with-ice-cream-shop-fruit-shop_1308-48321.jpg?size=626&ext=jpg" alt="Avatar" style="width:100%">
+    <img src="https://static7.depositphotos.com/1086305/731/i/450/depositphotos_7315837-stock-photo-storm-is-coming-on-american.jpg" alt="Avatar" style="width:100%">
     <div class="container">
       <h4 [routerLink] = "['/products', value.storename]">Store Name : <b>{{value.storename}}</b></h4>
     </div>

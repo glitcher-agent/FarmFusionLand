@@ -43,4 +43,12 @@ export class CartService {
     }
     this.toastr.warning('Product removed from cart');
   }
+  removeAllCartItems() {
+    this.cartList = [];
+    this.productList.next(this.cartList);
+  }
+
+  getCartItemCount(): number {
+    return this.cartList.length;
+  }
 }

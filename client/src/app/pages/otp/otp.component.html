@@ -1,0 +1,11 @@
+<div class=" w-4/12 justify-center mx-auto p-11 sm:mt-14 shadow-2xl rounded-2xl ">
+    <h3 class="animate-text bg-gradient-to-r mt-5 from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent text-3xl font-black text-center">Verify</h3>
+    <form [formGroup]="otpForm" class="flex flex-col">
+        <div class="flex flex-col mt-4 mb-1" >
+            <input formControlName="otp" class ="p-2 border border-emerald-300 rounded-3xl "type="text" placeholder="Enter your OTP">        
+        </div>
+
+        <button (click)="check()" class="transition delay-150 duration-300 ease-in-out bg-lime-500 p-2 rounded mt-3 text-yellow-200">SUBMIT</button>
+    </form>
+
+</div>

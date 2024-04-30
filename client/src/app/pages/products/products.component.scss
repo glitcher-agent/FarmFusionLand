@@ -1,31 +1,30 @@
-.image-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    cursor: pointer;
-    margin-top: 3%;
-  }
+/* profiles.component.scss */
 
-.cart-icon{
-    cursor: pointer;
-  }
-  
-  
-  .card {
-    width: 15%; 
-    margin-bottom: 20px; 
-    box-sizing: border-box;
-  }
-  
-  img {
-    width: 8%;
-    height: 70%;
-    border-radius: 100%;
-  }
-  
-  .container{
-    text-align: center;
-  }
+.image-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+
+.card {
+  width: 15%; /* Adjust as needed */
+  margin-bottom: 40px; /* Adjust spacing between rows */
+  box-sizing: border-box;
+  margin-left: 10px;
+}
+
+img {
+  width: 20%;
+  height: 50%;
+  border-radius: 10%;
+}
+
+.container{
+  text-align: center;
+}
+
   
   .add-to-cart {
     cursor: pointer;

@@ -4,11 +4,12 @@ import { ProductsComponent } from '../products/products.component';
 import { RouterLink, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { checkServerIdentity } from 'tls';
+import { HeaderComponent } from '../../components/header/header.component';
 
 @Component({
   selector: 'app-checkout',
   standalone:true,
-  imports:[RouterLink, CommonModule, ProductsComponent, CheckoutComponent],
+  imports:[RouterLink, CommonModule, ProductsComponent, CheckoutComponent,HeaderComponent],
   templateUrl: './checkout.component.html',
   styleUrls: ['./checkout.component.scss']
 })
@@ -47,13 +48,13 @@ export class CheckoutComponent implements OnInit {
     this.cartService.removeCartItem(item);
   }
 
-  checkedOut = false;
+  // checkedOut = false;
 
-  onButtonClick() {
-    this.checkedOut = !this.checkedOut;
-    alert("Your Order is Successfull");
-    this.router.navigate(['home']);
+  // onButtonClick() {
+  //   this.checkedOut = !this.checkedOut;
+  //  alert("Your Order is Successfull");
+  //   this.router.navigate(['products']);
   
-  }
+  // }
     
 }

@@ -1,76 +1,154 @@
 
-<div class="min-h-screen flex items-center justify-center relative" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQu77xRN6A8ibVTHhgxu89yGRftQjwqVVJBOg&usqp=CAU');; background-size: cover; background-position: center; background-repeat: no-repeat;">
-    <!-- Overlay with blur effect -->
-    <div class="absolute inset-0 bg-opacity-25 backdrop-filter backdrop-blur-sm"></div>
-  
-    <div class="text-center relative z-10">
-      <h1 class="text">Welcome to FarmGrow</h1>
-      <div class="flex justify-center">
-        <button  [routerLink]="['/profiles']" class=" animate-bounce transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 duration-300 font-semibold text-white px-6 py-3 rounded-full mr-4 hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">
-          Buy Here
+<app-header/>
+<ng-container *ngIf="!isAdmin">
+  <div class="min-h-screen flex items-center justify-center relative" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQu77xRN6A8ibVTHhgxu89yGRftQjwqVVJBOg&usqp=CAU');; background-size: cover; background-position: center; background-repeat: no-repeat;">
+      <!-- Overlay with blur effect -->
+      <div class="absolute inset-0 bg-opacity-25 backdrop-filter backdrop-blur-sm"></div>
+    
+      <div class="text-center relative z-10">
+        <h1 class="text">Welcome to FarmGrow</h1>
+        <div class="flex justify-center">
+          <button  [routerLink]="['/profiles']" class=" animate-bounce transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 duration-300 font-semibold text-white px-6 py-3 rounded-full mr-4 hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">
+            Buy Here
 
-        </button>
-        <button [routerLink]="['/collection']" class="animate-bounce transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 bg-green-500 font-semibold text-white px-6 py-3 rounded-full hover:bg-green-600 focus:outline-none focus:ring focus:border-green-300">
-          Sell Here
-        </button>
+          </button>
+          <!-- <button [routerLink]="['/collection']" class="animate-bounce transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 bg-green-500 font-semibold text-white px-6 py-3 rounded-full hover:bg-green-600 focus:outline-none focus:ring focus:border-green-300">
+            Sell Here
+          </button> -->
+        </div>
+      </div>
+  </div>
+
+    <div class="md:w-full bg-gray-200 p-8 flex items-center justify-center space-x-8 animate__animated animate__fadeIn">
+    <div class="flex flex-col md:flex-row mt-8">
+      <div class="flex-shrink-0 w-32 h-32 relative overflow-hidden rounded-full">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRf_yZNZYBWCYzC3J6FRlCAuB-mmvajt862CQ&usqp=CAU" alt="Vegetables" class="w-full h-full object-cover rounded-md mb-4 md:mb-0">
+      </div>
+      <div class="md:w-1/2 p-8">
+        <h2 class="text-2xl font-bold mb-4">Fresh Apples</h2>
+        <p class="text-gray-600 mb-4">
+          Handpicked selection of the freshest vegetables to add nutrition to your meals.
+        </p>
       </div>
     </div>
-</div>
-
-  <div class="md:w-full bg-gray-200 p-8 flex items-center justify-center space-x-8 animate__animated animate__fadeIn">
-  <div class="flex flex-col md:flex-row mt-8">
-    <div class="flex-shrink-0 w-32 h-32 relative overflow-hidden rounded-full">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRf_yZNZYBWCYzC3J6FRlCAuB-mmvajt862CQ&usqp=CAU" alt="Vegetables" class="w-full h-full object-cover rounded-md mb-4 md:mb-0">
-    </div>
-    <div class="md:w-1/2 p-8">
-      <h2 class="text-2xl font-bold mb-4">Fresh Apples</h2>
-      <p class="text-gray-600 mb-4">
-        Handpicked selection of the freshest vegetables to add nutrition to your meals.
-      </p>
-    </div>
-  </div>
-  <div class="flex flex-col md:flex-row mt-8">
-    <div class="flex-shrink-0 w-32 h-32 relative overflow-hidden rounded-full">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz0ST8q7OAc-w1fMx6T8OMe0YajjNxKYE08Q&usqp=CAU" alt="Berry Basket" class="w-full h-full object-cover rounded-md">
-    </div>
-    <div class="md:w-1/2 p-8">
-      <h2 class="text-2xl font-bold mb-4">Fresh Oranges</h2>
-      <p class="text-gray-600 mb-4">
-        Indulge in the sweetness of our fresh Oranges, perfect for snacks or desserts.
-      </p>
-    </div>
-  </div>
-</div>
-
-<div class="min-h-screen flex items-center justify-center flex-col">
-    <h1 class="text-4xl font-bold mb-8">About Us</h1>
-  
-    <div class="max-w-2xl text-center">
-      <section>
-        <h2 class="text-2xl font-bold mb-4">Our Mission</h2>
+    <div class="flex flex-col md:flex-row mt-8">
+      <div class="flex-shrink-0 w-32 h-32 relative overflow-hidden rounded-full">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz0ST8q7OAc-w1fMx6T8OMe0YajjNxKYE08Q&usqp=CAU" alt="Berry Basket" class="w-full h-full object-cover rounded-md">
+      </div>
+      <div class="md:w-1/2 p-8">
+        <h2 class="text-2xl font-bold mb-4">Fresh Oranges</h2>
         <p class="text-gray-600 mb-4">
-          At FarmGrow, our mission is to provide the freshest and highest-quality produce to our customers while we support local farmers and promoting healty life. We strive to create a connection between farmers and consumers, making it easier for everyone to access nutritious and delicious food.
+          Indulge in the sweetness of our fresh Oranges, perfect for snacks or desserts.
         </p>
-      </section>
-  
-      <section class="mt-8">
-        <h2 class="text-2xl font-bold mb-4">Our Values</h2>
-        <ul class="list-disc list-inside text-left text-gray-600">
-          <li>Quality: We are committed to delivering only the finest and freshest products.</li>
-          <li>Sustainability: We prioritize environmentally friendly and sustainable practices.</li>
-          <li>Community: Supporting local farmers and communities is at the heart of what we do.</li>
-          <li>Innovation: We embrace innovation to enhance the customer experience and agricultural practices.</li>
-        </ul>
-      </section>
-  
-      <section class="mt-8">
-        <h2 class="text-2xl font-bold mb-4">Why Choose Us?</h2>
-        <p class="text-gray-600 mb-4">
-         We Select Farmers very selectively who grows in <b class="text-red-600">organic</b> way and we can produce in reasonable price with healthy products
-        </p>
-      </section>
+      </div>
     </div>
   </div>
+
+  <div class="min-h-screen flex items-center justify-center flex-col">
+      <h1 class="text-4xl font-bold mb-8">About Us</h1>
+    
+      <div class="max-w-2xl text-center">
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Our Mission</h2>
+          <p class="text-gray-600 mb-4">
+            At FarmGrow, our mission is to provide the freshest and highest-quality produce to our customers while we support local farmers and promoting healty life. We strive to create a connection between farmers and consumers, making it easier for everyone to access nutritious and delicious food.
+          </p>
+        </section>
+    
+        <section class="mt-8">
+          <h2 class="text-2xl font-bold mb-4">Our Values</h2>
+          <ul class="list-disc list-inside text-left text-gray-600">
+            <li>Quality: We are committed to delivering only the finest and freshest products.</li>
+            <li>Sustainability: We prioritize environmentally friendly and sustainable practices.</li>
+            <li>Community: Supporting local farmers and communities is at the heart of what we do.</li>
+            <li>Innovation: We embrace innovation to enhance the customer experience and agricultural practices.</li>
+          </ul>
+        </section>
+    
+        <section class="mt-8">
+          <h2 class="text-2xl font-bold mb-4">Why Choose Us?</h2>
+          <p class="text-gray-600 mb-4">
+          We Select Farmers very selectively who grows in <b class="text-red-600">organic</b> way and we can produce in reasonable price with healthy products
+          </p>
+        </section>
+      </div>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="isAdmin">
+  <div class="min-h-screen flex items-center justify-center relative" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQu77xRN6A8ibVTHhgxu89yGRftQjwqVVJBOg&usqp=CAU');; background-size: cover; background-position: center; background-repeat: no-repeat;">
+      <!-- Overlay with blur effect -->
+      <div class="absolute inset-0 bg-opacity-25 backdrop-filter backdrop-blur-sm"></div>
+    
+      <div class="text-center relative z-10">
+        <h1 class="text">Welcome to FarmGrow</h1>
+        <div class="flex justify-center">
+          <button  [routerLink]="['/profiles']" class=" animate-bounce transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 duration-300 font-semibold text-white px-6 py-3 rounded-full mr-4 hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">
+            Buy Here
+
+          </button>
+          <button [routerLink]="['/collection']" class="animate-bounce transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 bg-green-500 font-semibold text-white px-6 py-3 rounded-full hover:bg-green-600 focus:outline-none focus:ring focus:border-green-300">
+            Sell Here
+          </button>
+        </div>
+      </div>
+  </div>
+
+    <div class="md:w-full bg-gray-200 p-8 flex items-center justify-center space-x-8 animate__animated animate__fadeIn">
+    <div class="flex flex-col md:flex-row mt-8">
+      <div class="flex-shrink-0 w-32 h-32 relative overflow-hidden rounded-full">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRf_yZNZYBWCYzC3J6FRlCAuB-mmvajt862CQ&usqp=CAU" alt="Vegetables" class="w-full h-full object-cover rounded-md mb-4 md:mb-0">
+      </div>
+      <div class="md:w-1/2 p-8">
+        <h2 class="text-2xl font-bold mb-4">Fresh Apples</h2>
+        <p class="text-gray-600 mb-4">
+          Handpicked selection of the freshest vegetables to add nutrition to your meals.
+        </p>
+      </div>
+    </div>
+    <div class="flex flex-col md:flex-row mt-8">
+      <div class="flex-shrink-0 w-32 h-32 relative overflow-hidden rounded-full">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz0ST8q7OAc-w1fMx6T8OMe0YajjNxKYE08Q&usqp=CAU" alt="Berry Basket" class="w-full h-full object-cover rounded-md">
+      </div>
+      <div class="md:w-1/2 p-8">
+        <h2 class="text-2xl font-bold mb-4">Fresh Oranges</h2>
+        <p class="text-gray-600 mb-4">
+          Indulge in the sweetness of our fresh Oranges, perfect for snacks or desserts.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="min-h-screen flex items-center justify-center flex-col">
+      <h1 class="text-4xl font-bold mb-8">About Us</h1>
+    
+      <div class="max-w-2xl text-center">
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Our Mission</h2>
+          <p class="text-gray-600 mb-4">
+            At FarmGrow, our mission is to provide the freshest and highest-quality produce to our customers while we support local farmers and promoting healty life. We strive to create a connection between farmers and consumers, making it easier for everyone to access nutritious and delicious food.
+          </p>
+        </section>
+    
+        <section class="mt-8">
+          <h2 class="text-2xl font-bold mb-4">Our Values</h2>
+          <ul class="list-disc list-inside text-left text-gray-600">
+            <li>Quality: We are committed to delivering only the finest and freshest products.</li>
+            <li>Sustainability: We prioritize environmentally friendly and sustainable practices.</li>
+            <li>Community: Supporting local farmers and communities is at the heart of what we do.</li>
+            <li>Innovation: We embrace innovation to enhance the customer experience and agricultural practices.</li>
+          </ul>
+        </section>
+    
+        <section class="mt-8">
+          <h2 class="text-2xl font-bold mb-4">Why Choose Us?</h2>
+          <p class="text-gray-600 mb-4">
+          We Select Farmers very selectively who grows in <b class="text-red-600">organic</b> way and we can produce in reasonable price with healthy products
+          </p>
+        </section>
+      </div>
+    </div>
+</ng-container>
 
 <app-footer/>
   

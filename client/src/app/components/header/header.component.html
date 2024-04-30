@@ -1,9 +1,23 @@
-<nav class="w-full flex justify-between items-center bg-green-950 shadow-xl mb-5">
+<nav class="w-full flex justify-between items-center bg-red-950 shadow-xl mb-5">
     <div class="logo">
-        <span [routerLink] ="['/home']" class="text-white text-4xl m-3 flex justify-start items-center cursor-pointer " >FarmGrow</span>
+      <img src="../../../assets/logo.png" alt="logo" class="h-16 w-56">
     </div>
     <div>
-            <span [routerLink] ="['/home']" class="text-xl cursor-pointer text-white font-bold m-5 hover:text-blue-400">Home</span>    
-            <span [routerLink]="['/checkout']" class="text-xl cursor-pointer text-white font-bold m-5 hover:text-blue-400">Cart</span>
+      <ng-container *ngIf="!isLoggedin; else loggedInNav"> 
+        <span class="text-xl cursor-pointer text-white font-bold m-5 hover:text-blue-400">Welcome {{ storedValue }}</span>
+        <span [routerLink]="['/home']" class="text-xl cursor-pointer text-white font-bold m-5 hover:text-blue-400">Home</span>
+        <span [routerLink]="['/login']" class="text-xl cursor-pointer text-white font-bold m-5 hover:text-blue-400">Login</span>
+      </ng-container>
+  
+      <ng-template #loggedInNav>
+        <span class="text-xl cursor-pointer text-white font-bold m-5 hover:text-blue-400">Welcome {{ storedValue }}</span>
+        <span [routerLink]="['/home']" class="text-xl cursor-pointer text-white font-bold m-5 hover:text-blue-400">Home</span>
+        <span class="cart-container">
+          <span [routerLink]="['/checkout']" class="text-xl cursor-pointer text-white font-bold m-5 hover:text-blue-400">Cart</span>
+          <span class="cart-count">{{ getCartItemCount() }}</span>
+        </span>
+        <span (click)="logout()" class="text-xl cursor-pointer text-white font-bold m-5 hover:text-blue-400">Logout</span>
+      </ng-template>
     </div>
-</nav>
+  </nav>
+  

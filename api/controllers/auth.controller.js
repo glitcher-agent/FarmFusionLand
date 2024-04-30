@@ -13,7 +13,7 @@ export const register = async (req, res, next) =>{
       return res.status(400).json("Email is already registered.");
       
     }
-        const role = await Role.find({ role: 'users' });
+        const role = await Role.find({ role: 'user' });
         const salt = await bcrypt.genSalt(10);
         const hashPassword = await bcrypt.hash(req.body.password, salt)
         const newUser = new User({
@@ -48,32 +48,36 @@ export const registerAdmin = async (req, res, next) =>{
     return res.status(200).json("Admin Registration Success");
 }
 
-export const login = async (req, res, next) =>{
-    try{
+export const login = async (req, res, next) => {
+    try {
         const user = await User.findOne({ email: req.body.email }).populate("roles", "role");
-        const { roles } = user
-        if (!user){
-            return res.status(404).json("user not found");
-        }
-        const isPasswordCorrect = await bcrypt.compare(req.body.password, user.password)
-        if (!isPasswordCorrect){
-            return res.status(400).json("Password is incorrect");     
-        }
-        const token = jwt.sign({ id: user._id, isAdmin: user.isAdmin, role: roles },"secretkey");
-        res.cookie("access", token, { httpOnly: true })
-            .status(200)
-            .json({
-                status: 200,
-                message: "login Success",
-                data: user
-            })
-        return res.status(200).json("Login Success");
-    } catch (error)
-    {
+        
+            const { roles } = user;
+        
 
-        return res.status(500).json("Internal Server Error"+error);
+        if (!user) {
+            return res.status(404).json("User not found");
+        }
+
+        const isPasswordCorrect = await bcrypt.compare(req.body.password, user.password);
+        if (!isPasswordCorrect) {
+            return res.status(400).json("Password is incorrect");
+        }
+
+        const token = jwt.sign({ id: user._id, isAdmin: user.isAdmin, role: roles }, "secretkey");
+        res.cookie("access", token, { httpOnly: true });
+
+        return res.status(200).json({
+            status: 200,
+            message: "Login success",
+            data: user
+        });
+    } catch (error) {
+        console.error('Error in login:', error);
+        return res.status(500).json("Internal Server Error");
     }
-}
+};
+
 
 export const sendEmail = async (req, res, next) =>{
     const email = req.body.email;
@@ -95,13 +99,13 @@ export const sendEmail = async (req, res, next) =>{
     const mailSender = nodemailer.createTransport({
         service:"gmail",
         auth:{
-            user:"vinodnaidu124@gmail.com",
-            pass:"srvziirysesqitnw"
+            user:"revanth8119@gmail.com",
+            pass:"cxqsyoaxumtanqkg"
         }
 
     });
     let mailDetails ={
-        from: "vinodnaidu124@gmail.com",
+        from: "revanth8119@gmail.com",
         to: email,
         subject: "Reset Password",
         html:`
@@ -113,7 +117,7 @@ export const sendEmail = async (req, res, next) =>{
         <h1>Password Reset Request</h1>
         <p>Dear ${user.userName}, </p>
 
-        <p>We have received a request to reset your password for your account with FarmGrow. To complete the password reset process, please click on the button below:</p>
+        <p>We have received a request to reset your password for your account with FarmFusionLand. To complete the password reset process, please click on the button below:</p>
         
         <a href = "http://localhost:4200/reset/${token}">
         <button style="background-color: #4CAF58; color: white; padding: 14px 20px; border: none; cursor: pointer; border-radius: 4px;">Reset Password </button>
@@ -122,7 +126,7 @@ export const sendEmail = async (req, res, next) =>{
         <p>Please note that this link is only valid for a 5mins. If you did not request a password reset, please disregard this message.</p>
         
         <p>Thank you, </p>
-        <p>FarmGrow Team</p>
+        <p>FarmFusionLand Team</p>
         
         </body>
 </html>
@@ -139,6 +143,49 @@ export const sendEmail = async (req, res, next) =>{
     })
 
 }
+
+export const sendOTPByEmail = async (req, res, next) => {
+    const email = req.body.email;
+    const otp = req.body.otp;
+    const expiryTime = 5 * 60; // OTP expires in 5 minutes (5 * 60 seconds)
+    const mailSender = nodemailer.createTransport({
+        service: "gmail",
+        auth: {
+            user: "revanth8119@gmail.com",
+            pass: "cxqsyoaxumtanqkg"
+        }
+    });
+
+    const mailDetails = {
+        from: "revanth8119@gmail.com",
+        to: email,
+        subject: "Your OTP for Login Verification",
+        html: `
+            <html>
+            <head>
+                <title>One-Time Password (OTP)</title>
+            </head>
+            <body>
+                <h1>Your OTP for Login Verification</h1>
+                <p>Dear User,</p>
+                <p>Your OTP is: <strong>${otp}</strong></p>
+                <p>Please use this OTP for Login Verification. This OTP is valid for ${expiryTime / 60} minutes.</p>
+                <p>Thank you,</p>
+                <p>FarmFusionLand</p>
+            </body>
+            </html>
+        `
+    };
+
+    mailSender.sendMail(mailDetails, async (err, data) => {
+        if (err) {
+            console.log("Error:", err);
+            return res.status(500).json("Failed to send OTP via email.");
+        } else {
+            return res.status(200).json("OTP sent successfully to your email.");
+        }
+    });
+};
 
 export const resetPassword = async (req, res, next)=>{
     const token = req.body.token;

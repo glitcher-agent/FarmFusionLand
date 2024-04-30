@@ -33,28 +33,26 @@ export const updateCollection = async(req, res, next)=>{
     }
 }
 
-export const getCollection = async(req,res,next)=>{
+export const getCollection = async (req, res, next) => {
     try {
-
         const distinctProfiles = await Collection.distinct('storename', { storename: { $exists: true } });
         const uniqueProfiles = await Collection.aggregate([
-          { $match: { storename: { $in: distinctProfiles } } },
-          {
-            $group: {
-              _id: '$storename',
-              profile: { $first: '$$ROOT' }
-            }
-          },
-          { $replaceRoot: { newRoot: '$profile' } }
+            { $match: { storename: { $in: distinctProfiles } } },
+            {
+                $group: {
+                    _id: '$storename',
+                    profile: { $first: '$$ROOT' }
+                }
+            },
+            { $replaceRoot: { newRoot: '$profile' } }
         ]).exec();
-        return res.status(200).json(uniqueProfiles)
-        
 
+        return res.status(200).json(uniqueProfiles);
     } catch (error) {
-        return res.status(500).json("Internal Server Issue")
-
+        console.error('Error in getCollection:', error);
+        return res.status(500).json("Internal Server Issue"); 
     }
-}
+};
 
 export const getProducts = async (req, res, next) => {
     try {

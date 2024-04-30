@@ -37,7 +37,7 @@ app.use((obj, req, res, next)=>{
 
 const connectDB= async()=> {
     try{
-        await mongoose.connect("mongodb+srv://Naidu:Naidu123@cluster0.j9djuh7.mongodb.net/AuthDB");
+        await mongoose.connect("mongodb+srv://revanth8119:FarmFusionLand%4081@cluster0.fgqqvk6.mongodb.net/Farm");
         console.log("connected to database")
     } catch(error){
         throw error;

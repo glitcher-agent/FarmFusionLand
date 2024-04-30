@@ -9,6 +9,10 @@ import { CollectionComponent } from './pages/collection/collection.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { ProfilesComponent } from './pages/profiles/profiles.component';
 import { UpdateComponent } from './pages/update/update.component';
+import { OtpComponent } from './pages/otp/otp.component';
+import { RegisteradminComponent } from './pages/registeradmin/registeradmin.component';
+import { PaymnetinfoComponent } from './pages/paymnetinfo/paymnetinfo.component';
+
 
 export const routes: Routes = [
     {
@@ -27,8 +31,16 @@ export const routes: Routes = [
         component:RegisterComponent,
     },
     {
+        path:'registeradmin',
+        component:RegisteradminComponent,
+    },
+    {
         path:'forget',
         component:ForgetComponent,
+    },
+    {
+        path:'otp',
+        component:OtpComponent,
     },
     {
         path:'reset/:token',
@@ -53,5 +65,10 @@ export const routes: Routes = [
     {
         path:'checkout',
         component:CheckoutComponent,
+    },
+    {
+        path:'paymentinfo',
+        component:PaymnetinfoComponent,
     }
+    
 ];
